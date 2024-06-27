@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COC-IIT-K</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> <!-- Updated path -->
+</head>
+
+<body>
+    <div id="heading_bar">
+        <img draggable="false" src="{{ url_for('static', filename='logo.png') }}" alt="Tailored for IIT-K" id="logo">
+        <img draggable="false" src="{{ url_for('static', filename='name.svg') }}" alt="Tailored for IIT-K"
+            id="logo_name">
+    </div>
+    <div id="input_handler" class="container">
+        <h1>Enter courses taken</h1>
+
+        <div id="branch_pos">
+            <label for="branch-select">Branch:</label>
+            <select id="branch-select" class="branch-select">
+                <option value="">Select Branch</option>
+            </select>
+        </div>
+
+        <div id="course_pos">
+            <label for="course-select">Course:</label>
+            <select id="course-select" class="course-select" disabled>
+                <option value="">Select Course</option>
+            </select>
+        </div>
+
+        <div id="button_pos">
+            <button class="btn" id="btn_add" onclick="add_button('course-select')"> ADD
+            </button>
+            <button class="btn" id="btn_reset" onclick="reset_button()"> RESET
+            </button>
+        </div>
+    </div>
+
+    <fieldset id="selected_courses">
+        <legend id="total_credits">Total Credits : 00</legend>
+    </fieldset>
+    <div id="utility_buttons">
+        <button onclick="get_available_courses()" class="uti_btn">
+            Check Available Courses
+        </button>
+        <button onclick="get_recommended_courses()" class="uti_btn">
+            Topic Base Recommendation
+        </button>
+    </div>
+
+    <div id="input_handler_avc" class="container hidden">
+        <h1>Available Courses</h1>
+
+        <div id="branch_pos">
+            <label for="branch-select">Branch:</label>
+            <select id="branch-select-avc" class="branch-select">
+                <option value="">Select Branch</option>
+            </select>
+        </div>
+
+        <div id="course_pos">
+            <label for="course-select">Courses that are not clashing:</label>
+            <select id="course-select-avc" class="course-select" disabled>
+                <option value="">Select Course</option>
+            </select>
+        </div>
+
+        <div id="button_pos">
+            <button id="avc-button" onclick="add_button_avc()"> ADD COURSE
+            </button>
+        </div>
+    </div>
+
+    <div id="orienter" class="container toggle1">
+        <div id="menuToggle">
+            <input id="rc_switch" type="checkbox" onchange="toggleClass()">
+            <label class="toggle" for="rc_switch">
+                <div class="bar bar--top"></div>
+                <div class="bar bar--middle"></div>
+                <div class="bar bar--bottom"></div>
+            </label>
+        </div>
+        <h1>Weekly Timetable</h1>
+        <section class="timetable">
+            <div class="timings">
+                <div id="tt">Days</div>
+                <div class="head_time">08:00</div>
+                <div class="head_time">09:00</div>
+                <div class="head_time">10:00</div>
+                <div class="head_time">11:00</div>
+                <div class="head_time">12:00</div>
+                <div class="head_time">13:00</div>
+                <div class="head_time">14:00</div>
+                <div class="head_time">15:00</div>
+                <div class="head_time">16:00</div>
+                <div class="head_time">17:00</div>
+                <div class="head_time">18:00</div>
+                <div class="head_time">19:00</div>
+                <div class="head_time">20:00</div>
+            </div>
+            <ol class="week">
+                <li class="day" id="M">
+                    <span class="name">Monday</span>
+                </li>
+                <li class="day" id="T">
+                    <span class="name">Tuesday</span>
+                </li>
+                <li class="day" id="W">
+                    <span class="name">Wednesday</span>
+                </li>
+                <li class="day" id="Th">
+                    <span class="name">Thursday</span>
+                </li>
+                <li class="day" id="F">
+                    <span class="name">Friday</span>
+                </li>
+            </ol>
+        </section>
+    </div>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+
+</html>
